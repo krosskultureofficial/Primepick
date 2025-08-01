@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>On Sale Products - PrimePicks</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      padding: 20px;
+    }
+
+
+    .btn-back-home {
+      display: inline-block;
+      margin: 20px;
+      padding: 10px 20px;
+      background-color: #000;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+
+    .btn-back-home:hover {
+      background-color: #444;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 15px 20px;
+    }
+
+    .product-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 18px;
+      font-weight: bold;
+      color: #e53935;
+    }
+
+    .original-price {
+      font-size: 14px;
+      color: #999;
+      text-decoration: line-through;
+      margin-left: 10px;
+    }
+
+    .add-to-cart {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #000;
+      color: #fff;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .add-to-cart:hover {
+      background-color: #444;
+    }
+
+    @media (max-width: 600px) {
+      .product-title {
+        font-size: 16px;
+      }
+      .price {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">PrimePicks</div>
+    <nav class="nav">
+      <ul>
+            <li><a href="index.html" class="nav-link">Home</a></li>
+           <li> <a href="shop.html" class="nav-link">Shop Now</a></li>
+          <li><a href="newarrivals.html" class="nav-link">New Arrivals</a></li>
+          <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+          <li><a href="admin.html" class="nav-link">Admin </a></li>
+        </ul>
+    </nav>
+    <div class="search-cart">
+      <input type="text" placeholder="Search for products..." />
+      <a href="cart.html" class="add-to-cart" title="View Cart">🛒</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <a href="index.html" class="btn-back-home">← Back to Home</a>
+
+    <h1>On Sale Products</h1>
+
+    <div class="product-grid">
+
+      <!-- Product Card Example -->
+      <div class="product-card">
+        <img class="product-image" src="Categories/Onsale/watch.jfif" alt="Men's Watch" />
+        <div class="product-info">
+          <h2 class="product-title">Men's Classic Watch</h2>
+          <div>
+            <span class="price">Rs. 2,499</span>
+            <span class="original-price">Rs. 4,999</span>
+          </div>
+           <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Repeat other products below -->
+      <div class="product-card">
+        <img class="product-image" src="Categories/Onsale/bag.jfif" alt="Women's Handbag" />
+        <div class="product-info">
+          <h2 class="product-title">Women's Leather Handbag</h2>
+          <div>
+            <span class="price">Rs. 1,299</span>
+            <span class="original-price">Rs. 2,799</span>
+          </div>
+           <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img class="product-image" src="Categories/Onsale/headphone.jfif" alt="Bluetooth Headphones" />
+        <div class="product-info">
+          <h2 class="product-title">Bluetooth Headphones</h2>
+          <div>
+            <span class="price">Rs. 1,899</span>
+            <span class="original-price">Rs. 3,499</span>
+          </div>
+           <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img class="product-image" src="Categories/Onsale/Sport.jfif" alt="Sports Shoes" />
+        <div class="product-info">
+          <h2 class="product-title">Men's Sports Shoes</h2>
+          <div>
+            <span class="price">Rs. 1,799</span>
+            <span class="original-price">Rs. 3,199</span>
+          </div>
+           <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script>
+  function saveCart(cart) {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
+
+  function loadCart() {
+    return JSON.parse(localStorage.getItem('cart')) || [];
+  }
+
+  function addToCart(product) {
+    const cart = loadCart();
+
+    // Check if item already exists in cart
+    const existingItem = cart.find(item => item.name === product.name);
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      product.quantity = 1;
+      cart.push(product);
+    }
+
+    saveCart(cart);
+    alert(`${product.name} added to cart.`);
+  }
+
+  function bindAddToCartButtons() {
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', () => {
+        const card = button.closest('.product-card');
+        const product = {
+          name: card.querySelector('.product-title').textContent,
+          price: parseInt(card.querySelector('.price').textContent.replace(/\D/g, '')),
+          image: card.querySelector('.product-image').src
+        };
+        addToCart(product);
+      });
+    });
+  }
+
+  // Run after page loads
+  document.addEventListener('DOMContentLoaded', bindAddToCartButtons);
+</script>
+
+</body>
+</html>
